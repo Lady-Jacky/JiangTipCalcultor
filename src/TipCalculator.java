@@ -7,30 +7,44 @@ public class TipCalculator {
         DecimalFormat formatter = new DecimalFormat("#.##");
 
         System.out.println("Welcome to the Tip Calculator!");
-        System.out.print("How much people are in your group?");
+        System.out.print("How much people are in your group?: ");
         int people = scan.nextInt();
-        System.out.print("What is the tip percentage? (Choose from 0-100):");
+        System.out.print("What is the tip percentage? (Choose from 0-100): ");
         int tip = scan.nextInt();
         double priceTotal = 0;
         double prices = 0;
-        System.out.println("Enter a cost in dollars and cents (Insert -1 to end adding prices):");
+        System.out.println("Enter a cost in dollars and cents (Insert -1 to end adding prices): ");
         priceTotal = scan.nextDouble();
         while (prices != -1) {
-            System.out.println("Enter a cost in dollars and cents (Insert -1 to end adding prices):");
+            System.out.println("Enter a cost in dollars and cents (Insert -1 to end adding prices): ");
             prices = scan.nextDouble();
             priceTotal += prices;
         }
         if (prices == -1){
             priceTotal += 1;
         }
-        double tipper = tip/100;
-        double totalTip = priceTotal * (1-tipper);
+        double tipper = tip/100.00;
+        double totalTip = priceTotal * tipper;
+        double total = priceTotal * (1+tipper);
+        double costPer = priceTotal/people;
+        double tipPer = totalTip/people;
+        double totalCostPer = total/people;
+
+        String priceDeciTotal = formatter.format(priceTotal);
+        String totalDeciTip = formatter.format(totalTip);
+        String totalRound = formatter.format(total);
+        String costPerRound = formatter.format(costPer);
+        String tipRound = formatter.format(tipPer);
+        String totalRound2 = formatter.format(totalCostPer);
 
         System.out.println("----------------------------------------");
-        System.out.println("Total Bill Before Tip: " + priceTotal);
+        System.out.println("Total Bill Before Tip: $" + priceDeciTotal);
         System.out.println("Tip Percentage: " + tip + "%");
-        System.out.println("Total tip: " + totalTip);
-
-    }
+        System.out.println("Total tip: $" + totalDeciTip);
+        System.out.println("Total bill with tip: $" + totalRound);
+        System.out.println("Per person cost before tip: " + costPerRound);
+        System.out.println("Tip per person: " + tipRound);
+        System.out.println("Total cost per person: " + totalRound2);
+        }
     }
 
