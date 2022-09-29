@@ -6,6 +6,7 @@ public class TipCalculator {
         Scanner scan = new Scanner(System.in);
         DecimalFormat formatter = new DecimalFormat("#.##");
 
+        //These below codes help determine the total price of the items to prepare for the tips
         System.out.println("Welcome to the Tip Calculator!");
         System.out.print("How much people are in your group?: ");
         int people = scan.nextInt();
@@ -20,9 +21,11 @@ public class TipCalculator {
             prices = scan.nextDouble();
             priceTotal += prices;
         }
+        //adds a 1 to the total price because the -1 was also added before
         if (prices == -1){
             priceTotal += 1;
         }
+
         double tipper = tip/100.00;
         double totalTip = priceTotal * tipper;
         double total = priceTotal * (1+tipper);
