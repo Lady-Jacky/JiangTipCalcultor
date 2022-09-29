@@ -26,6 +26,7 @@ public class TipCalculator {
             priceTotal += 1;
         }
 
+        //These codes basically initializes the variables that will be the base of the tip calculator
         double tipper = tip/100.00;
         double totalTip = priceTotal * tipper;
         double total = priceTotal * (1+tipper);
@@ -33,6 +34,7 @@ public class TipCalculator {
         double tipPer = totalTip/people;
         double totalCostPer = total/people;
 
+        //these codes format the previous variables so that they would appear in the correct decimal format
         String priceDeciTotal = formatter.format(priceTotal);
         String totalDeciTip = formatter.format(totalTip);
         String totalRound = formatter.format(total);
@@ -40,6 +42,7 @@ public class TipCalculator {
         String tipRound = formatter.format(tipPer);
         String totalRound2 = formatter.format(totalCostPer);
 
+        //The printed statements of the tip calculator that uses the previous variables:
         System.out.println("----------------------------------------");
         System.out.println("Total Bill Before Tip: $" + priceDeciTotal);
         System.out.println("Tip Percentage: " + tip + "%");
